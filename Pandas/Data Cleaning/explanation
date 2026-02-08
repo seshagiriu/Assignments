@@ -1,0 +1,71 @@
+👉 Pandas Data Cleaning means fixing messy data using Pandas functions so the data becomes correct and usable.
+
+Real-world data is usually messy — it may have:
+-Missing values
+-Duplicate rows
+-Wrong data types
+-Outliers
+-Formatting issues
+
+Data cleaning fixes these problems before analysis or ML. Cleaning includes handling missing values, correcting errors, standardizing formats, and removing duplicates.
+
+🧠 Main Pandas Data Cleaning Tasks (Simple)
+1️⃣ Handling Missing Values (Very Important)
+Missing values are very common in real datasets.
+👉 Pandas methods:
+dropna() → remove missing rows/columns
+fillna() → fill missing values.
+
+Example:
+df.dropna()
+df.fillna(0)
+You can also fill using mean values:
+   df.fillna(df.mean())
+Dropping removes incomplete records, while filling keeps data but replaces missing values.
+
+2️⃣ Removing Duplicate Data
+Duplicates can give wrong counts and wrong analysis.
+👉 Pandas methods:
+duplicated() → check duplicates
+drop_duplicates() → remove duplicates
+Example:
+df.drop_duplicates()
+You can remove duplicates based on specific columns also.
+
+3️⃣ Fixing Data Types
+Sometimes numbers come as text or dates as string.
+👉 Method:
+df["age"] = df["age"].astype(int)
+Correct data types are important for calculations and ML models.
+
+4️⃣ Standardizing Text / Category Data
+Example problems:
+"HYD" vs "hyd" vs " Hyderabad "
+"Male" vs "male"
+👉 Example:
+df["city"] = df["city"].str.lower().str.strip()
+Standardizing makes grouping and analysis accurate.
+
+5️⃣ Handling Outliers
+Outliers = Very abnormal values.
+Example:
+Salary = 1 crore when others = 50k
+Methods:
+Remove outliers
+Replace with mean / median
+Cap values
+Example:
+df["age"] = np.clip(df["age"], lower, upper)
+Handling outliers improves model accuracy.
+
+📌 Simple Beginner Data Cleaning Flow
+Step 1 → Load Data
+Step 2 → Check Missing Values
+Step 3 → Remove / Fill Missing
+Step 4 → Remove Duplicates
+Step 5 → Fix Data Types
+Step 6 → Standardize Text
+Step 7 → Handle Outliers
+
+🧾 One Line Summary
+👉 Pandas Data Cleaning = Fixing missing data, duplicates, wrong types, and bad formats using Pandas functions.
