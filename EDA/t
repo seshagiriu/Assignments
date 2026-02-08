@@ -1,1 +1,70 @@
+EDA = Exploratory Data Analysis
 
+👉 In simple words:
+EDA means looking at data carefully to understand what is inside before doing machine learning or analysis.
+
+📌 What is EDA?
+Exploratory Data Analysis is the process of analyzing datasets to summarize their main features, mostly using graphs and statistics.
+It helps to:
+1.Understand data structure
+2.Find patterns
+3.Detect errors
+4.Find relationships between columns
+EDA is usually done before building models.
+
+🧠 Why EDA is Used (Main Reasons)
+1️⃣ Understand Data Before Using It
+EDA helps analysts look at data before making assumptions.
+Example:
+1.How many columns?
+2.What data types?
+3.Is data balanced?
+
+2️⃣ Find Patterns and Trends
+EDA helps discover hidden patterns and relationships.
+Example:
+1.Sales increases in festival season
+2.High salary → more spending
+
+3️⃣ Detect Errors and Missing Data
+EDA helps find:
+-->Missing values
+-->Wrong data
+-->Duplicate data
+-->Outliers
+This improves data quality.
+
+4️⃣ Helps Choose Correct ML Model
+EDA helps decide:
+1.Which features to use
+2.Which model works best
+3.Which data cleaning needed
+
+📌 What EDA is Mainly Used For
+✔ Data Science
+✔ Machine Learning
+✔ Business Analysis
+✔ Data Engineering (Data checking stage)
+
+📌 What We Do in EDA (Main Tasks)
+1. Data Cleaning
+🔹Remove duplicates
+🔹Fill missing values
+🔹Fix wrong data
+
+2.🔹 Data Statistics
+Check:
+Mean
+Median
+Standard deviation
+Distribution
+
+3. Data Visualization
+Common graphs:
+Histogram
+Bar chart
+Scatter plot
+Heatmap
+
+🔹 Relationship Checking
+Check correlation between columns
