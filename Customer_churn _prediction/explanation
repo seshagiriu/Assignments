@@ -1,0 +1,161 @@
+🧠 ML Problem: Customer Churn
+📌 Project Goal
+The goal of this project is to build a Machine Learning application that predicts whether a customer will churn (leave service) 
+or stay, based on customer details such as tenure, monthly charges, contract type, and internet service.
+
+Features:
+● Tenure
+● Monthly charges
+● Contract type
+● Internet service
+
+📁 Production Folder Structure
+churn_app/
+│
+├── app.py
+├── requirements.txt
+│
+├── data/
+│ └── churn.csv
+│
+├── ml/
+│ ├── model.py
+│ └── preprocess.py
+│
+├── pages/
+│ ├── predict.py
+│ └── train.py
+│
+├── state/
+│ └── session.py
+│
+└── utils/
+└── ui.py
+
+📄 app.py
+👉 Main Streamlit app router.
+
+What it does:
+Controls navigation between pages
+Loads session state
+Connects training and prediction pages
+
+📄 requirements.txt
+👉 Contains all required Python libraries.
+Example:
+streamlit
+pandas
+scikit-learn
+This helps others install dependencies easily.
+
+📁 data/
+📄 churn.csv
+👉 Dataset used to train ML model.
+
+Contains:
+tenure → Customer months with company
+monthly_charges → Monthly bill amount
+contract → Contract type
+internet_service → Internet type
+churn → Target (Yes / No)
+
+🧪 Machine Learning Layer
+📁 ml/
+📄 preprocess.py
+
+👉 Handles data preprocessing before training.
+What we do here:
+
+✔ Separate features (X) and target (y)
+✔ Convert churn Yes/No → 1/0
+✔ Identify categorical columns
+✔ Apply One Hot Encoding
+✔ Combine numeric + encoded categorical data
+
+Why?
+ML models cannot understand text → So we convert categories to numbers.
+
+📄 model.py
+👉 Contains model training logic.
+
+What we do:
+✔ Train Logistic Regression model
+✔ Use @st.cache_resource
+
+Why cache_resource?
+Avoid retraining model every time app reloads
+Improves performance
+Keeps model shared across sessions
+
+🖥 Application Pages
+📁 pages/
+📄 train.py
+
+👉 Model training UI page.
+What happens here:
+
+✔ Load dataset
+✔ Display dataset in UI
+✔ Train model when button clicked
+✔ Store model + encoder in session state
+
+Why session state?
+So model stays available for prediction without retraining.
+
+📄 predict.py
+👉 Customer churn prediction page.
+
+What happens here:
+✔ User enters customer details
+✔ Uses trained model from session
+✔ Applies encoder transformation
+✔ Predicts churn probability
+✔ Displays risk level
+
+Output:
+Churn probability %
+High risk or Low risk message
+🧠 Session Management
+📁 state/
+📄 session.py
+
+👉 Initializes Streamlit session state.
+
+What we do:
+Check if model exists in session
+If not → initialize as None
+
+Why?
+Prevent errors
+Maintain model between page refreshes
+
+🎨 UI Utilities
+📁 utils/
+📄 ui.py
+
+👉 Contains reusable UI helper functions.
+Example:
+
+Layout styling
+Custom components
+Reusable UI blocks
+
+🔄 Application Flow
+Step 1 → Load Dataset
+Step 2 → Preprocess Data
+Step 3 → Train ML Model
+Step 4 → Store Model in Session
+Step 5 → User Inputs Customer Details
+Step 6 → Model Predicts Churn Probability
+Step 7 → Show Result in UI
+🤖 ML Model Used
+Logistic Regression
+Why Used?
+
+✔ Simple and fast
+✔ Works well for binary classification
+✔ Easy to explain results
+
+🧾 Summary
+This project is a production-style ML Streamlit application that demonstrates the full pipeline 
+from data preprocessing → model training → prediction → deployment-ready UI.
